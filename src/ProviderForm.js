@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import defaultQuestionsLibrary from "./defaultQuestionsLibrary";
 import Field from "./Field";
+import save from "./functions/save";
 
 export default function ProviderForm() {
   const [providerFormState, updateProviderFormState] = useState(
@@ -20,6 +21,13 @@ export default function ProviderForm() {
     next[index] = { ...providerFormState[index], formData: formData };
     console.log("updated form field spec with data", next);
     updateProviderFormState(next);
+  };
+
+  const handleSave = async () => {
+    await save(providerFormState, () => {
+      console.log("finished saving data");
+    });
+    alert("saved!");
   };
 
   console.log("next reader state", providerFormState);
@@ -43,6 +51,8 @@ export default function ProviderForm() {
           />
         );
       })}
+      <button>Add a question</button>
+      <button onClick={handleSave}>Save form</button>
     </div>
   );
 }
