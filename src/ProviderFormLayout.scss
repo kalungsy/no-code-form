@@ -1,0 +1,17 @@
+.provider-form-layout{
+  display: flex;
+  flex-direction: column;
+
+  .provider-form-layout-inner{
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: 1rem 0;
+    padding: 1rem 0;
+  }
+
+  .provider-form-preview-section{
+    border-left: 1px solid black;
+  }
+}
